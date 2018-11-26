@@ -1,0 +1,43 @@
+# Declairing and initializing variables in python
+
+#String
+ml = "mobile game"
+coc = "mobile game"
+
+
+cod = "computer game"
+ac = "computer game"
+
+print(ml)
+print(coc)
+print(cod)
+print(ac)
+
+#Numerical Value
+dog = 1
+rat = 2
+cat = 3
+
+int(dog)
+print(rat)
+print(cat)
+
+
+#Arithmetic
+
+addition = 1+1
+subtraction = 2-1
+multiplication = 1*1
+division = 1/3
+
+print(addition)
+print(subtraction)
+print(multiplication)
+print(division)
+
+if addition > division:
+    print("hello")
+elif multiplication > subtraction:
+    print ("km")
+else:
+    print("G")
