@@ -1,0 +1,18 @@
+list_cars = ["ferrari","lamborgiog","BmW",]
+list_price = ["25m   ","50m       ","1m"]
+list_popularity = ["top 1","top 2","    top 3"]
+
+for x in range(len(list_cars)):
+    print (list_cars[x],end="\t")
+print()
+for y in range (len(list_price)):
+    print (list_price[y],end="\t")
+print()
+for z in range (len(list_popularity)):
+    print (list_popularity[z],end="\t")
+print()
+print(len(list_cars),end="\t")
+print(" ",end="\t")
+print(len(list_price),end="\t")
+print("      ",end="\t")
+print(len(list_popularity),end="\t")
