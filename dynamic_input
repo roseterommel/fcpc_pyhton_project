@@ -1,0 +1,10 @@
+name = input ("Enter yor name:")
+print ("Your name is:"+ name)
+
+#accepts numerical value
+fnum = int(input("Enter the first number:"))
+snum = int(input("Enter the second number:"))
+
+to_int_value = int("10")
+print(fnum + snum)
+print(to_int_value ** 2)
