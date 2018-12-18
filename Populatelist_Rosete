@@ -1,0 +1,17 @@
+def populatelist():
+    listx = ["bde","cef","dfg"]
+    return listx
+
+listy=populatelist()
+print(listy)
+
+def reducelist():
+    listz=populatelist()
+    listz.append("ghixxx")
+    return listz
+print (reducelist())
+
+def abc():
+    print ("Hi")
+    abc()
+print (abc())
