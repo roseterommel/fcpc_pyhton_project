@@ -1,0 +1,17 @@
+
+user = input("Enter Username: ")
+passw = input("Enter password: ")
+
+if (len(user) >= 8):
+    if (user == "rosete20"):
+        if(len(passw) >= 8):
+            if (passw == "rommel20"):
+                print ("login completed")
+            else:
+                print("login failed")
+        else:
+            print ("password not match")
+    else:
+        print ("username not match")
+else:
+    print ("username % password not match and did not reach the limmit")
