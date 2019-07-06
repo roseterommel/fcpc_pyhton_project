@@ -1,0 +1,21 @@
+
+package rommel;
+
+public class Arraysort {
+    public static void main(String[] args) {
+        int[] myArray = {-1,-2,3,0,5,6,7,9,10,11,13,15,-10,-14,4};
+        int biboy;
+     
+       for (int z = 1; z <  myArray.length; z++){
+           for (int x = z; x > 0; x--){
+               if (myArray[x]> myArray[x - 1]){
+                  biboy = myArray[x];
+                  myArray[x]= myArray[x-1];
+                  myArray[x-1] = biboy;
+               }         
+            }
+        }
+       for (int z = 0; z < myArray.length; z++)
+            System.out.println(myArray[z]);
+    }
+}
