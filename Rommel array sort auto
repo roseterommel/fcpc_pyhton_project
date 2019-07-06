@@ -1,0 +1,39 @@
+
+package rommel;
+
+import java.util.Arrays;
+import java.util.Collections;
+class SortArrayExample {
+ 
+  public static void main(String[] args) {
+    Integer[] newlist = new Integer[] {
+        new Integer(-1),new Integer(-2),
+        new Integer(3),
+        new Integer(0),
+        new Integer(5),
+        new Integer(6),
+        new Integer(7),
+        new Integer(9),
+        new Integer(10),
+        new Integer(11),
+        new Integer(13),
+        new Integer(15),
+        new Integer(-10),
+        new Integer(-14),
+        new Integer(4)
+    };
+
+
+    Arrays.sort(newlist, Collections.reverseOrder());
+ 
+
+    System.out.println("Int Array Elements in reverse order:");
+    for (int i = 0; i < newlist.length; i++)
+       System.out.println(newlist[i]);
+ 
+
+
+  }
+}
+    
+
