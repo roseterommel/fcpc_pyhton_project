@@ -1,0 +1,29 @@
+
+package javaapplication2;
+
+
+public class JavaApplication2 {
+
+
+    public static void main(String[] args) {
+        char mander[]= {'c','h','a','r','m','a','n','d','e','r'};
+        
+        int len = mander.length;
+        for (int c = 10; c <=len ;c++){
+            
+            System.out.println(mander);
+            
+        }
+//        int grade []= {98,85,77,92,91,100};
+//        int ave=0,sum=0;
+//        for(int index=0; index<grade.length; index++){
+//            sum+= grade[index];
+//        }
+//        ave = sum / grade.length;
+//        System.out.println("the average is: "+ave);
+  
+       
+        }
+    }
+    
+
