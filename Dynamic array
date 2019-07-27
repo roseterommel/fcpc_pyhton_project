@@ -1,0 +1,38 @@
+
+package javaapplication2;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
+public class rommel {
+    public static void main(String[] args){
+        BufferedReader reader = new BufferedReader(new InputStreamReader (System.in));
+        int list[];
+        
+        try{
+            System.out.print("Enter a Value: ");
+            String input = reader.readLine();
+            System.out.println("The Value you entered is: "+input);
+            int value = Integer.parseInt(input);
+            list = new int [value];
+            System.out.println("The length of the array is: "+list.length);
+            System.out.println("Enter the Elements: ");
+            for (int index = 0; index <list.length; index++){
+                String elem = reader.readLine();
+                list[index]= Integer.parseInt(elem);
+            }
+            System.out.println("The elements you enter is: ");
+            for (int index = 0; index < list.length; index++){
+                System.out.println("The Elements for("+index+") are: "+list[index]);
+            }
+            
+            
+            
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    
+    
+}
+}
