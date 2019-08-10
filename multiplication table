@@ -1,0 +1,28 @@
+
+package javaapplication1;
+
+public class JavaApplication1 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+      int res;
+      System.out.println("Multiplication Table: ");
+      for (int x = 1;x < 11; x++){
+          for (int y = 1;y < 11; y++){
+              res = x*y;
+           if (res < 10){
+               System.out.print(res+"   ");
+           }else if(res <100){
+               System.out.print(res+"  ");
+           }else{
+               System.out.print(res+" ");
+           }
+           
+          }System.out.println("");
+          
+      }
+    }
+    
+}
