@@ -1,0 +1,196 @@
+
+package fastfoodrommel;
+
+
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
+public class FastfoodRommel {
+    
+    private static final double _Chicken = 60.00;
+    private static final double _Spaghetti = 50.00;
+    private static final double _Coke = 20.00;
+    private static final double _Shake = 40.00;
+    
+    private static void caculateTotal(JTable tblOrderList, JLabel lblTotal) {
+        
+        double total = 0.00;
+        for(int row = 0; row < tblOrderList.getRowCount(); row++){
+            String price = tblOrderList.getValueAt(row, 1).toString();
+            double val = Double.parseDouble(price);
+            total += val;
+        }
+        lblTotal.setText("Total: " + total);
+    }
+    
+    public static void main (String []args){
+        
+        JFrame frame= new JFrame("Fast Food Order System");
+        JCheckBox jcbChicken = new JCheckBox("Fried Chicken Php 50");
+        JCheckBox jcbSpaghetti = new JCheckBox("Spaghetti Php 45");
+        JCheckBox jcbCoke = new JCheckBox("Coke Php 20");
+        JCheckBox jcbShake = new JCheckBox("Shake Php 40");
+        JButton btnOrder = new JButton("Order");
+        JButton btnDelete = new JButton("Delete");
+        JTable tblOrderList = new JTable();
+        JScrollPane jsScrollPane = new JScrollPane(tblOrderList);
+        JLabel lblTotal = new JLabel("Total: 0.00");
+       
+        btnOrder.setEnabled(false);
+        
+        jcbChicken.setBounds(20, 50, 200, 35);
+        jcbSpaghetti.setBounds(20, 85, 200, 35);
+        jcbCoke.setBounds(250,50,300,35);
+        jcbShake.setBounds(250,85,300,35);
+        btnOrder.setBounds(20, 315, 250, 35);
+        btnDelete.setBounds(300,315, 250, 35);
+        jsScrollPane.setBounds(10, 355, 670, 190);
+        lblTotal.setBounds(50,535, 300, 30);
+        
+        
+        
+        
+        tblOrderList.setModel(new DefaultTableModel(
+            
+        new String[][]{},
+        new String[]{
+        "Item",
+        "Price"
+            
+    
+}));
+                     
+        tblOrderList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        
+        frame.add(lblTotal);
+        frame.add(jcbChicken);
+        frame.add(jcbSpaghetti);
+        frame.add(jcbCoke);
+        frame.add(jcbShake);
+        frame.add(btnOrder);
+        frame.add(btnDelete);
+        frame.add(jsScrollPane);
+                    
+                    btnOrder.addActionListener(new ActionListener() {
+            @Override
+            
+             public void actionPerformed(ActionEvent ae) {
+                DefaultTableModel model = (DefaultTableModel) tblOrderList.getModel();
+                String item = "None";
+                String price = "0.00";
+                
+                if (jcbChicken.isSelected() && jcbSpaghetti.isSelected() && jcbCoke.isSelected()&&jcbShake.isSelected()) {
+                String chicken[] = {"Chicken", "" + _Chicken};
+                String spaghetti[] = {"Spaghetti", "" + _Spaghetti};
+                String coke[]= {"Coke",""+_Coke};
+                String shake[]= {"Shake",""+_Shake};
+                model.addRow(chicken);
+                model.addRow(spaghetti);
+                model.addRow(coke);
+                model.addRow(shake);
+
+                } else {
+                if (jcbChicken.isSelected()) {
+                item = "Chicken";
+                price = "" + _Chicken;
+
+                }
+            
+                if (jcbSpaghetti.isSelected()) {
+                item = "Spaghetti";
+                price = "" + _Spaghetti;
+                }
+                
+                if(jcbCoke.isSelected()){
+                    item = "Coke";
+                    price = ""+_Coke;
+                }
+                if(jcbShake.isSelected()){
+                    item = "Shake";
+                    price = ""+_Shake;
+                }
+
+                
+                String data[] = {item, price};
+                model.addRow(data);
+                }
+                caculateTotal(tblOrderList, lblTotal);
+             }
+                
+                
+        });
+                    
+                    jcbChicken.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            if (jcbChicken.isSelected() || jcbSpaghetti.isSelected() ||  jcbCoke.isSelected() || jcbShake.isSelected()) {
+                                btnOrder.setEnabled(true);
+                            }else{
+                                btnOrder.setEnabled(false);
+                            }
+                        }
+                        });
+                    jcbSpaghetti.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            if (jcbSpaghetti.isSelected() ||jcbChicken.isSelected() ||  jcbShake.isSelected() || jcbCoke.isSelected()) {
+                                btnOrder.setEnabled(true);
+                            }else{
+                                btnOrder.setEnabled(false);
+                            }
+                        }
+                        });
+                    jcbCoke.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            if (jcbCoke.isSelected()|| jcbShake.isSelected() ||  jcbChicken.isSelected() || jcbSpaghetti.isSelected()) {
+                                btnOrder.setEnabled(true);
+                            }else{
+                                btnOrder.setEnabled(false);
+                            }
+                        }
+                        });
+                    jcbShake.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            if ( jcbShake.isSelected() || jcbCoke.isSelected()||  jcbSpaghetti.isSelected()|| jcbChicken.isSelected()) {
+                                btnOrder.setEnabled(true);
+                            }else{
+                                btnOrder.setEnabled(false);
+                            }
+                        }
+                        });
+                    btnDelete.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent ae) {
+                            int selectedRow = tblOrderList.getSelectedRow();
+                            DefaultTableModel model = (DefaultTableModel) tblOrderList.getModel();
+                            
+                            if (selectedRow < 0) {JOptionPane.showMessageDialog(null, "Please select a row to delete!", 
+                                    "No row selected", JOptionPane.ERROR_MESSAGE);
+                            }else{
+                                model.removeRow(selectedRow);
+                                caculateTotal(tblOrderList, lblTotal);
+                            }
+                                    
+                                
+                        }
+                    });
+                    
+                    
+                    
+                    
+        
+        
+        frame.setSize(700, 600);
+        frame.setLayout(null);
+        frame.setVisible(true);
+        frame.setResizable(false);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    
+}
